@@ -27,5 +27,9 @@ Another approach I got started on was using a CSP Solver (Constraint Satisfactio
 
 The CSP Solver approach is on hold for now, with Possibilities Calculator taking priority (mostly because I actually understand how to implement that). This approach is probably going to be pretty intensive, so when I'm sure it works I will need to optimize it. On the flip side though, this is how I tend to approach solving sudoku in real life. That doesn't mean I'm any good at them, but it's worth a shot.
 
+The way you approach identifying the matrix matters too, and took longer than I like to admit to figure out.
+
+![Quick Visual of how the cells are organized and referenced in this project](https://i.imgur.com/FzoIDK0.png)
+
 
 Sorry for stealing your idea [@ranjani-suraj](https://github.com/Ranjani-Suraj), it was just really interesting lmao
