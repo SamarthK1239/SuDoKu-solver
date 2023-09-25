@@ -20,6 +20,7 @@ input_puzzle = ("070040800"
                 "080902007"
                 "070100040"
                 "091005802")
+input_puzzle_normal = "070000043040009610800634900094052000358460020000800530080070091902100005007040802"
 expected_output = "679518243543729618821634957794352186358461729216897534485276391962183475137945862"
 
 
@@ -28,9 +29,8 @@ expected_output = "6795182435437296188216349577943521863584617292168975344852763
 def convert_input(input_string):
     string = []
     for i in range(9):
-        string.append(input_string[i*9:i*9+9])
+        string.append(input_string[i * 9:i * 9 + 9])
 
-    print(string)
     puzzle = []
     for i in range(9):
         puzzle.append([])
@@ -39,6 +39,7 @@ def convert_input(input_string):
     return puzzle
 
 
+converted = convert_input(input_puzzle_normal)
+print(converted[0][1])
 
-
-print(convert_input(input_puzzle))
+# 
