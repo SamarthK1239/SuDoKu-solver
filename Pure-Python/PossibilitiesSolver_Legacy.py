@@ -27,19 +27,51 @@ expected_output = "6795182435437296188216349577943521863584617292168975344852763
 # The input String is the digits of the puzzle, left to right, top to bottom
 # Convert the input string to a 9x9 array
 def convert_input(input_string):
-    string = []
+    output_array = []
     for i in range(9):
-        string.append(input_string[i * 9:i * 9 + 9])
-
-    puzzle = []
-    for i in range(9):
-        puzzle.append([])
+        output_array.append([])
         for j in range(9):
-            puzzle[i].append(int(string[i][j]))
-    return puzzle
+            output_array[i].append(int(input_string[i * 9 + j]))
+    return output_array
 
 
 converted = convert_input(input_puzzle_normal)
-print(converted[0][1])
 
-# 
+
+def check_column(converted_input, column):
+    column_list_numbers = []
+    for i in range(9):
+        if converted_input[i][column] != 0:
+            column_list_numbers.append(converted_input[i][column])
+
+    return column_list_numbers
+
+
+def check_row(converted_input, column):
+    row_list_numbers = []
+    for i in range(9):
+        if converted_input[column][i] != 0:
+            row_list_numbers.append(converted_input[column][i])
+
+    return row_list_numbers
+
+
+def check_grid(converted_input, row, column):
+    grid_list_numbers = []
+    for i in range(3):
+        for j in range(3):
+            if converted_input[row + i][column + j] != 0:
+                grid_list_numbers.append(converted_input[row + i][column + j])
+
+    return grid_list_numbers
+
+
+def invert_numbers_to_possibilities(array):
+    output = []
+    for i in range(1, 10):
+        if i not in array:
+            output.append(i)
+    return output
+
+def get_possibilities_for_cell(converted_input, row, column):
+
