@@ -73,5 +73,20 @@ def invert_numbers_to_possibilities(array):
             output.append(i)
     return output
 
-def get_possibilities_for_cell(converted_input, row, column):
 
+def get_possibilities_for_cell(converted_input, row, column):
+    cell_coordinates = [row, column]
+    column_list_numbers = check_column(converted_input, column)
+    column_possibilities = invert_numbers_to_possibilities(column_list_numbers)
+    row_list_numbers = check_row(converted_input, row)
+    row_possibilities = invert_numbers_to_possibilities(row_list_numbers)
+    grid_list_numbers = check_grid(converted_input, row - row % 3, column - column % 3)
+    grid_possibilities = invert_numbers_to_possibilities(grid_list_numbers)
+
+    # Check which values are shared between the three possibilities lists
+    possibilities = []
+    for i in range(1, 10):
+        if i in column_possibilities and i in row_possibilities and i in grid_possibilities:
+            possibilities.append(i)
+
+    return possibilities
